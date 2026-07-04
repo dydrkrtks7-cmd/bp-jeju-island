@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주도 종합 정보 | Jeju Island 공식 데이터</title>
+    <meta name="description" content="제주도의 지리, 기후, 역사, 인구, 경제 등 공신력 있는 데이터 기반 정보를 제공합니다. 정착과 여행을 위한 핵심 참고 자료.">
+    <meta name="keywords" content="제주도 정보, Jeju island data, 제주도 기후, 제주도 인구, 제주도 역사, 제주도 경제, 제주도 지리">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-acid-yellow">
+    <link rel="canonical" href="https://jeju-island.vercel.app/info">
+    <!-- Open Graph -->
+    <meta property="og:title" content="제주도 종합 정보 | Jeju Island 공식 데이터">
+    <meta property="og:description" content="제주도의 지리, 기후, 역사, 인구, 경제 등 공신력 있는 데이터 기반 정보를 제공합니다. 정착과 여행을 위한 핵심 참고 자료.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeju-island.vercel.app/info">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="제주도 종합 안내 | Jeju Island">
+    <meta property="og:image" content="https://jeju-island.vercel.app/og-image-info.jpg">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="제주도 종합 정보 | Jeju Island 공식 데이터">
+    <meta name="twitter:description" content="제주도의 지리, 기후, 역사, 인구, 경제 등 공신력 있는 데이터 기반 정보를 제공합니다.">
+    <meta name="twitter:image" content="https://jeju-island.vercel.app/twitter-image-info.jpg">
+    <!-- CSS Core -->
+    <style>
+        /* CSS Reset & Base */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            background-color: #1a1a1a;
+        }
+        body {
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            background-color: #f5f0e8;
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            border-left: 6px solid #e6c200;
+            padding-left: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            max-width: 70ch;
+        }
+        a {
+            color: #1a1a1a;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+        a:hover, a:focus {
+            color: #e6c200;
+            background-color: #1a1a1a;
+            text-decoration: none;
+        }
+        /* Brutalist Elements */
+        .brutal-border {
+            border: 4px solid #1a1a1a;
+            box-shadow: 6px 6px 0 #1a1a1a;
+        }
+        .brutal-border-green {
+            border: 4px solid #2d6a4f;
+            box-shadow: 6px 6px 0 #2d6a4f;
+        }
+        .brutal-bg {
+            background-color: #e6c200;
+            color: #1a1a1a;
+            padding: 1.5rem;
+        }
+        .brutal-bg-dark {
+            background-color: #1a1a1a;
+            color: #f5f0e8;
+            padding: 1.5rem;
+        }
+        /* Navigation */
+        nav {
+            background-color: #1a1a1a;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .logo a {
+            color: #e6c200;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+        nav .logo a:hover {
+            color: #ffffff;
+            background: none;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav ul li a {
+            color: #f5f0e8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.3rem 0.5rem;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #1a1a1a;
+            background-color: #e6c200;
+            border-color: #e6c200;
+        }
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: #e6c200;
+            transition: all 0.3s;
+        }
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border: 3px solid #1a1a1a;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 6px 6px 0 #1a1a1a;
+        }
+        .card h3 {
+            border-bottom: 2px solid #e6c200;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+        }
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        .data-table th {
+            background-color: #1a1a1a;
+            color: #e6c200;
+            padding: 0.8rem;
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        .data-table td {
+            padding: 0.8rem;
+            border-bottom: 2px solid #1a1a1a;
+        }
+        .data-table tr:nth-child(even) td {
+            background-color: #f0ebe0;
+        }
+        /* FAQ */
+        .faq-item {
+            border-bottom: 2px solid #1a1a1a;
+            padding: 1.2rem 0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item h4::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+        .faq-item.active h4::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #f5f0e8;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        footer p {
+            max-width: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+        footer a {
+            color: #e6c200;
+        }
+        /* Responsive 768px */
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            h1 {
+                font-size: 2rem;
+                border-left-width: 4px;
+                padding-left: 0.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            nav {
+                padding: 0.8rem 1rem;
+                flex-wrap: wrap;
+            }
+            nav .logo a {
+                font-size: 1.2rem;
+            }
+            .hamburger {
+                display: flex;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #1a1a1a;
+                padding: 1rem 0;
+                margin-top: 0.8rem;
+                gap: 0;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            nav ul li a {
+                display: block;
+                padding: 0.8rem 1.5rem;
+                border: none;
+                border-bottom: 1px solid #333;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .data-table {
+                font-size: 0.85rem;
+            }
+            .data-table th,
+            .data-table td {
+                padding: 0.5rem;
+            }
+        }
+        /* Additional utile */
+        .highlight-yellow {
+            background-color: #e6c200;
+            padding: 0.2rem 0.4rem;
+            font-weight: 700;
+        }
+        .stat-badge {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: #e6c200;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        hr {
+            border: none;
+            border-top: 4px solid #1a1a1a;
+            margin: 2rem 0;
+        }
+    </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="/" title="제주도 종합 안내">JEJU.ISLAND</a>
+        </div>
+        <button class="hamburger" aria-label="메뉴 열기" onclick="document.querySelector('nav ul').classList.toggle('open')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul>
+            <li><a href="/" title="홈">홈</a></li>
+            <li><a href="/info" title="정보" class="active">정보</a></li>
+            <li><a href="/travel" title="여행">여행</a></li>
+            <li><a href="/living" title="생활">생활</a></li>
+            <li><a href="/transport" title="교통">교통</a></li>
+            <li><a href="/accommodation" title="숙소">숙소</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+
+            <!-- Page Header -->
+            <section>
+                <h1>JEJU ISLAND 종합 정보</h1>
+                <p class="brutal-bg" style="margin-bottom: 1.5rem;">
+                    <strong>공신력 있는 데이터와 공식 통계 기반</strong> — 제주특별자치도의 지리, 기후, 역사, 인구, 
+                    경제 및 생활 인프라에 대한 정확한 정보를 제공합니다. 
+                    출처: 제주특별자치도청, 통계청, 기상청, 한국은행.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1rem;">
+                    <span class="stat-badge">면적 1,849 km²</span>
+                    <span class="stat-badge">인구 678,324명 (2024)</span>
+                    <span class="stat-badge">GDP 22.4조 원</span>
+                    <span class="stat-badge">평균 기온 16.2°C</span>
+                </div>
+            </section>
+
+            <!-- Section 1: 지리 및 위치 -->
+            <section>
+                <h2>지리 및 위치</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>위치·좌표</h3>
+                        <p>제주도는 한반도 남서해상에 위치하며, 동경 126°08'~126°58', 북위 33°06'~34°00'에 걸쳐 있다. 
+                        대한민국 최남단의 행정구역으로, 부산에서 남서쪽으로 약 140km, 일본 후쿠오카에서 서쪽으로 약 200km 거리다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>면적·지형</h3>
+                        <p>총 면적 1,849km²로 한반도 전체의 약 1.8%를 차지한다. 
+                        중앙에 한라산(해발 1,947m)이 위치하며, 동서 73km, 남북 31km의 타원형 화산섬이다. 
+                        해안선 길이는 약 258km이며, 주변에 74개의 부속 섬이 있다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>
+</body>
+</html>

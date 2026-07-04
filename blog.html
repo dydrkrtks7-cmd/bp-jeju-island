@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주도 숨은 꿀팁 대방출 – 블로그 | 브로의 제주 가이드</title>
+    <meta name="description" content="야, 나만 알고 있던 제주도 숨은 꿀팁 블로그에 다 풀어쓴다. 렌트카 꿀팁, 혼밥 맛집, 비 오는 날 대처법까지. 실전 경험담으로 가득!">
+    <meta name="keywords" content="제주도, 제주여행, 제주 블로그, 렌트카, 혼밥, 제주도 꿀팁, 브로, 여행정보, 숨은 맛집">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-raw-concrete">
+    <link rel="canonical" href="https://jeju-island.vercel.app/blog">
+    <!-- OG + Twitter -->
+    <meta property="og:title" content="제주도 진짜 꿀팁 블로그 – 브로가 알려주는 실전 정보">
+    <meta property="og:description" content="야, 제주도 갈 때 꼭 알아야 할 꿀팁만 모았다. 렌터카, 맛집, 비 대비 꿀팁까지. 클릭하면 너도 제주도 고수 된다.">
+    <meta property="og:image" content="https://jeju-island.vercel.app/og-blog.jpg">
+    <meta property="og:url" content="https://jeju-island.vercel.app/blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="제주도 꿀팁 블로그 – 브로의 실전 가이드">
+    <meta name="twitter:description" content="제주도 가기 전에 꼭 읽어야 할 꿀팁 블로그. 혼자 가도, 커플로 가도 도움되는 정보만 쏙쏙.">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #f5f0e8; /* 콘크리트 베이스 */
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding: 0;
+            background-image: radial-gradient(circle, #d4cdc0 1px, transparent 1px);
+            background-size: 20px 20px;
+            min-height: 100vh;
+        }
+        a { color: inherit; text-decoration: none; border-bottom: 2px solid #c0392b; }
+        a:hover { background: #c0392b; color: #f5f0e8; }
+        ul { list-style: none; }
+        img, svg { max-width: 100%; height: auto; display: block; }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            line-height: 0.9;
+            margin-bottom: 1rem;
+            border-left: 10px solid #c0392b;
+            padding-left: 1rem;
+        }
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 2rem 0 1rem;
+            border-bottom: 4px solid #1a1a1a;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 600;
+            margin: 1.5rem 0 0.8rem;
+        }
+        p { margin-bottom: 1.2rem; font-size: 1.1rem; }
+        .accent-text {
+            font-size: 1.4rem;
+            font-weight: bold;
+            background: #1a1a1a;
+            color: #f5f0e8;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        section { margin: 3rem 0; }
+
+        /* ===== NAV ===== */
+        nav {
+            background: #1a1a1a;
+            color: #f5f0e8;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 4px solid #c0392b;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            border-bottom: none;
+        }
+        nav .logo:hover { background: transparent; color: #c0392b; }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+        nav ul li a {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        nav ul li a:hover {
+            border-bottom-color: #c0392b;
+            background: transparent;
+            color: #c0392b;
+        }
+
+        /* 햄버거 메뉴 (모바일) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+        .hamburger span {
+            width: 30px;
+            height: 4px;
+            background: #f5f0e8;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* ===== BLOG POST ===== */
+        .blog-post {
+            background: #f5f0e8;
+            padding: 2rem;
+            border: 4px solid #1a1a1a;
+            box-shadow: 10px 10px 0 #1a1a1a;
+            margin-bottom: 2rem;
+        }
+        .blog-post .meta {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            border-top: 2px solid #1a1a1a;
+            border-bottom: 2px solid #1a1a1a;
+            padding: 0.5rem 0;
+        }
+        .blog-post .meta span { margin-right: 1.5rem; }
+        .blog-post blockquote {
+            border-left: 8px solid #c0392b;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.3rem;
+            background: #e8e0d0;
+            padding: 1rem 1.5rem;
+        }
+        .blog-post .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .blog-post .gallery img {
+            border: 3px solid #1a1a1a;
+            transition: 0.3s;
+        }
+        .blog-post .gallery img:hover {
+            border-color: #c0392b;
+            transform: scale(1.02);
+        }
+        .blog-post .tip-box {
+            background: #1a1a1a;
+            color: #f5f0e8;
+            padding: 1.5rem;
+            border: 4px solid #c0392b;
+            margin: 2rem 0;
+        }
+        .blog-post .tip-box h3 { color: #f5f0e8; border-bottom-color: #c0392b; }
+        .blog-post .tip-box ul li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
+        .blog-post .tip-box ul li::before { content: ">"; position: absolute; left: 0; color: #c0392b; font-weight: bold; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a1a1a;
+            color: #f5f0e8;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 6px solid #c0392b;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+        footer a { color: #f5f0e8; border-bottom-color: #c0392b; }
+        footer a:hover { background: #c0392b; }
+
+        /* ===== RESPONSIVE 768 ===== */
+        @media (max-width: 768px) {
+            nav .container { flex-wrap: wrap; }
+            .hamburger { display: flex; }
+            nav ul {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+                border-top: 2px solid #c0392b;
+                margin-top: 1rem;
+            }
+            nav ul.active { display: flex; }
+            .blog-post { padding: 1rem; box-shadow: 5px 5px 0 #1a1a1a; }
+            .blog-post .meta span { display: block; margin-bottom: 0.3rem; }
+            h1 { border-left-width: 6px; padding-left: 0.5rem; }
+        }
+
+        /* 텔 링크 스타일 */
+        .tel-link {
+            font-weight: bold;
+            border-bottom: 2px solid #c0392b;
+            font-size: 1.2rem;
+        }
+        .tel-link:hover { background: #c0392b; color: #f5f0e8; }
+    </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">JEJU BRO</a>
+            <button class="hamburger" aria-label="메뉴 열기" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="/">홈</a></li>
+                <li><a href="/blog">블로그</a></li>
+                <li><a href="#about">브로 소개</a></li>
+                <li><a href="tel:01062790862" class="tel-link">📞 전화문의</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>제주도 숨은 꿀팁 대방출</h1>
+        <p class="accent-text">브로가 직접 경험하고 정리한 실전 정보 블로그 ✨</p>
+
+        <section>
+            <article class="blog-post">
+                <div class="meta">
+                    <span>📅 2025.06.15</span>
+                    <span>✍️ 브로</span>
+                    <span>🏷️ 렌트카 | 혼밥 | 우천팁</span>
+                </div>
+
+                <h2>렌트카 꿀팁 : 예약은 무조건 일찍, 보험은 풀로</h2>
+                <p>야, 제주도 가면 가장 중요한 게 뭔 줄 알아? 바로 <strong>렌트카</strong>야. 나도 처음 갔을 때 막 예약했다가 개고생했어. 성수기엔 차가 동나니까 <span class="accent-text">최소 2주 전</span>에 예약하는 게 짱이야.</p>
+                <p>그리고 보험! 면책금 때문에 울고 싶지 않으면 <strong>완전자차</strong> 들어. 제주도 내비가 가끔 이상한 골목으로 안내하는데, 긁히면 한방에 50만원 나간다. 내 친구는 긁어서 70만원 물었어... 그 돈으로 회 먹었어야 했는데 ㅠㅠ</p>
+
+                <blockquote>
+                    "렌트카는 LPG보다 경유차가 낫다. 주유소 찾기 쉽고, 제주도 경사길에서 힘 좋음."
+                </blockquote>
+
+                <h3>내가 추천하는 차종</h3>
+                <ul style="margin-left: 2rem; list-style: square;">
+                    <li>아반떼 or 셀토스 — 혼족이나 둘이 가기 딱 좋음</li>
+                    <li>스포티지 — 4인 가족이면 이거 추천, 트렁크도 넉넉</li>
+                    <li>쏘렌토 — 5인 이상 or 캠핑 짐 많을 때</li>
+                </ul>
+
+                <div class="gallery">
+                    <img src="https://via.placeholder.com/400x300/1a1a1a/f5f0e8?text=렌트카+코너링" alt="제주도 렌트카 코너링">
+                    <img src="https://via.placeholder.com/400x300/1a1a1a/f5f0e8?text=주유소+꿀팁" alt="주유소 풍경">
+                </div>
+
+                <h2>혼밥 맛집 3선 : 혼자 가도 눈치 안 보이는 곳</h2>
+                <p>제주도에서 혼밥하기 좋은 곳? 솔직히 많지 않아. 근데 내가 찾은 <strong>진짜 혼밥 성지</strong> 공개할게.</p>
+                <ol style="margin-left: 2rem; list-style: decimal;">
+                    <li><strong>이층게스트</strong> (애월) — 혼자 앉을 수 있는 카운터석 있고, 고등어구이가 대박</li>
+                    <li><strong>돈사돈</strong> (노형) — 점심에 혼밥 가능, 흑돼지 김치찌개 혼자 먹기 딱 좋아</li>
+                    <li><strong>우진해장국</strong> (구좌) — 24시간이라 아무 때나 가도 되고, 고기가 실하게 들어있음</li>
+                </ol>
+                <p>팁 하나 더 주자면, <span class="accent-text">오전 11시</span>쯤 가면 사람 없어서 편하게 먹을 수 있어. 나는 점심시간 12시 딱 되기 전에 가는 편이야.</p>
+
+                <div class="tip-box">
+                    <h3>☔ 비 오는 날 제주도 대처법</h3>
+                    <ul>
+                        <li>실내 핫플: 제주동문시장 지하 — 먹거리 천국이고 비도 안 맞아</li>
+                        <li>카프리치노 맛집: '구름에 달' — 창밖 비 보면서 커피 한 잔 하면 힐링 그 자체</li>
+                        <li>우산은 무조건 <strong>튼튼한 거</strong> 챙겨와. 제주도 바람에 우산 부러지는 거 순삭이야</li>
+                        <li>렌터카 와이퍼도 확인하고 가. 나는 와이퍼 고장 나서 난리 났었음</li>
+                    </ul>
+                </div>
+
+                <h2>마지막 꿀팁 : 제주도에서 절대 하지 말아야 할 것</h2>
+                <p>첫째, <strong>네비게이션만 믿지 마</strong>. 카카오맵+네이버맵 같이 켜고 가는 게 안전해. 가끔 길이 없는 데로 안내하는 경우 있거든.</p>
+                <p>둘째, <strong>일정을 빡빡하게 짜지 마</strong>. 제주도 생각보다 커. 동쪽에서 서쪽 가는데 1시간 30분 기본이야. 여유 있게 움직여야 스트
+</body>
+</html>

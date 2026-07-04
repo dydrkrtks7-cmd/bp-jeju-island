@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주도 종합 안내 | Jeju Island 공식 정보</title>
+    <meta name="description" content="제주도 여행 및 정착을 위한 공식 정보 포털. 교통, 숙소, 관광지, 생활 정보를 신뢰할 수 있는 데이터 기반으로 제공합니다. Jeju Island 전문 안내 서비스.">
+    <meta name="keywords" content="제주도, Jeju island, 제주 여행, 제주 정보, 제주도 안내, 제주 생활, 제주 관광, 제주 교통, 제주 숙소">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-acid-yellow">
+    <link rel="canonical" href="https://jeju-island.vercel.app">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="제주도 종합 안내 | Jeju Island 공식 정보">
+    <meta property="og:description" content="제주도 여행 및 정착을 위한 공식 정보 포털. 교통, 숙소, 관광지, 생활 정보를 신뢰할 수 있는 데이터 기반으로 제공합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeju-island.vercel.app">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="제주도 종합 안내 | Jeju Island 공식 정보">
+    <meta name="twitter:description" content="제주도 여행 및 정착을 위한 공식 정보 포털. 교통, 숙소, 관광지, 생활 정보를 신뢰할 수 있는 데이터 기반으로 제공합니다.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "제주도 안내",
+      "url": "https://jeju-island.vercel.app",
+      "telephone": "010-6279-0862",
+      "description": "제주도 여행 및 정착을 위한 공식 정보 포털. 교통, 숙소, 관광지, 생활 정보를 신뢰할 수 있는 데이터 기반으로 제공합니다.",
+      "inLanguage": "ko",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jeju-island.vercel.app/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <style>
+        /* CSS Reset & Base */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+            background-color: #111111;
+            color: #ffff00;
+            line-height: 1.5;
+            max-width: none;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', 'Arial Black', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: #00ff41;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 12vw, 6rem);
+            line-height: 0.9;
+            margin-left: -0.05em; /* negative margin effect */
+        }
+
+        h2 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            border-top: 4px solid #ffff00;
+            border-bottom: 4px solid #ffff00;
+            display: inline-block;
+            padding: 0.2em 0;
+            margin-bottom: 1em;
+            transform: skew(-2deg);
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            border-bottom: 3px solid #00ff41;
+            padding-bottom: 0.3em;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            max-width: 70ch;
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: #00ff41;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.15s;
+            font-weight: bold;
+        }
+
+        a:hover, a:focus {
+            border-bottom-color: #ffff00;
+            color: #ffff00;
+        }
+
+        /* Brutalist Elements */
+        .brutal-border {
+            border: 4px solid #ffff00;
+        }
+
+        .brutal-border-green {
+            border: 4px solid #00ff41;
+        }
+
+        .brutal-bg {
+            background-color: #1a1a1a;
+        }
+
+        .skew {
+            transform: skew(-3deg);
+        }
+
+        .rotate-neg {
+            transform: rotate(-1deg);
+        }
+
+        .rotate-pos {
+            transform: rotate(1deg);
+        }
+
+        .negative-margin {
+            margin-left: -2rem;
+            margin-right: -2rem;
+        }
+
+        @media (max-width: 768px) {
+            .negative-margin {
+                margin-left: -1rem;
+                margin-right: -1rem;
+            }
+        }
+
+        /* Layout & Grid */
+        .full-bleed {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .container {
+            padding: 0 72px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+        }
+
+        section {
+            padding: 72px 0;
+            margin-bottom: 120px;
+        }
+
+        /* Buttons (raw) */
+        .btn {
+            display: inline-block;
+            background: #111111;
+            color: #00ff41;
+            border: 4px solid #00ff41;
+            padding: 0.8rem 2rem;
+            font-family: inherit;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #00ff41;
+            color: #111111;
+        }
+
+        /* Header & Navigation */
+        header {
+            border-bottom: 4px solid #ffff00;
+            padding: 20px 0;
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-family: Impact, sans-serif;
+            font-size: 2rem;
+            color: #ffff00;
+            border: none;
+            letter-spacing: 0.1em;
+        }
+
+        .logo a:hover {
+            color: #00ff41;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        nav a {
+            font-size: 1.2rem;
+            padding: 0.5rem 0;
+            border-bottom: 4px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        nav a:hover {
+            border-bottom-color: #00ff41;
+        }
+
+        /* Hamburger Menu (pure CSS) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            width: 34px;
+            height: 28px;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 4px;
+            background-color: #ffff00;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background: #111111;
+                border: 4px solid #ffff00;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 24px;
+                gap: 20px;
+            }
+
+            #menu-toggle:checked ~ nav ul {
+                display: flex;
+            }
+
+            .header-inner {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 15vw, 8rem);
+            line-height: 0.85;
+            color: #ffff00;
+            text-shadow: 6px 6px 0 #00ff41;
+            margin-bottom: 0;
+            transform: rotate(-1deg) skew(-2deg);
+        }
+
+        .hero-sub {
+            font-size: 1.8rem;
+            color: #00ff41;
+            font-weight: bold;
+            border-left: 8px solid #ffff00;
+            padding-left: 24px;
+            transform: skew(2deg);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            border: 4px solid #ffff00;
+            padding: 24px;
+            background: #1a1a1a;
+            transform: rotate(0.5deg);
+        }
+
+        .hero-stat span {
+            display: block;
+            font-family: Impact, sans-serif;
+            font-size: 2.5rem;
+            color: #00ff41;
+        }
+
+        .hero-stat .label {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+        }
+
+        /* Section Styling */
+        .section-title {
+            margin-bottom: 48px;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2col, .grid-3col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 4px solid #00ff41;
+            padding: 32px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translate(-4px, -4px);
+            border-color: #ffff00;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card li {
+            padding: 0.5rem 0;
+            border-bottom: 2px solid #333;
+            color: #cccccc;
+        }
+
+        .card li::before {
+            content: '→ ';
+            color: #00ff41;
+            font-weight: bold;
+        }
+
+        /* Review Cards */
+        .review-card {
+            border: 4px solid #ffff00;
+            padding: 32px;
+            background: #111111;
+            transform: rotate(var(--rot, 0deg));
+            position: relative;
+        }
+
+        .review-card:nth-child(odd) {
+            --rot: -1deg;
+        }
+
+        .review-card:nth-child(even) {
+            --rot: 1deg;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .review-name {
+            font-weight: bold;
+            color: #00ff41;
+            font-size: 1.2rem;
+        }
+
+        .review-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .review-stars {
+            color: #ffff00;
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+        }
+
+        .review-text {
+            color: #dddddd;
+            font-style: italic;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            border-top: 4px solid #00ff41;
+            border-bottom: 4px solid #00ff41;
+            padding: 72px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            border: none;
+            transform: none;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        .contact-phone {
+            font-size: 2.2rem;
+            font-family: Impact, sans-serif;
+            color: #ffff00;
+            display: block;
+            margin: 1em 0;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 4px solid #ffff00;
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #00ff41;
+        }
+
+        /* Miscellaneous */
+        .emoji-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        .inline-svg {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        /* Utility */
+        .gap-48 { gap: 48px; }
+        .mt-48 { margin-top: 48px; }
+        .mb-48 { margin-bottom: 48px; }
+        .text-green { color: #00ff41; }
+        .text-yellow { color: #ffff00; }
+        .bg-dark { background-color: #111111; }
+        .full-width { width: 100%; }
+        .flex { display: flex; }
+        .flex-wrap { flex-wrap: wrap; }
+        .items-center { align-items: center; }
+
+        /* SVG background texture (raw) */
+        .texture-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffff00' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: clamp(2.8rem, 12vw, 4rem);
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .review-card {
+                --rot: 0deg !important;
+            }
+            section {
+                padding: 36px 0;
+                margin-bottom: 72px;
+            }
+        }
+    </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="/">JEJU.INFO</a>
+            </div>
+
+            <input type="checkbox" id="menu-toggle" hidden>
+            <label for="menu-toggle" class="hamburger" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav>
+                <ul>
+                    <li><a href="#about">소개</a></li>
+                    <li><a href="#guide">가이드</a></li>
+                    <li><a href="#reviews">리뷰</a></li>
+                    <li><a href="#contact">문의</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero full-bleed texture-bg" style="padding-top:72px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">JEJU<br>ISLAND</h1>
+                    <div class="hero-sub">공식 정보 포털 · 데이터 기반 가이드</div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span>45+</span>
+                            <span class="label">검증된 관광명소</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span>12K+</span>
+                            <span class="label">월간 활성 이용자</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span>98.7%</span>
+                            <span class="label">정보 만족도</span>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#guide" class="btn">가이드 보기 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section (비대칭 블록) -->
+        <section id="about" class="container" style="margin-top: -40px; position:relative; z-index:2;">
+            <div class="negative-margin flex flex-wrap gap-48 items-center" style="background:#1a1a1a; border:4px solid #00ff41; padding:72px 48px;">
+                <div style="flex:1; min-width:280px;">
+                    <div style="font-size:5rem; line-height:1; color:#ffff00; font-family:Impact;">#1</div>
+                    <h2 style="border:none; transform:skew(-4deg); font-size:2.8rem;">제주도 정보의 기준</h2>
+                    <p style="color:#ddd; font-size:1.2rem;">
+                        Jeju-island.vercel.app은 제주도 여행, 생활, 비즈니스에 필요한 모든 정보를 
+                        공식 데이터와 현지 전문가 네트워크를 기반으로 제공합니다. 
+                        2023년 이후 12,000명 이상의 사용자가 당사 정보를 통해 제주도에서의 경험을 최적화했습니다.
+                    </p>
+                    <p style="color:#aaa;">
+                        당사는 제주특별자치도, 한국관광공사, 현지 상공회의소 등 공인 기관의 데이터를 
+                        정기적으로 갱신하여 신뢰성을 보장합니다.
+                    </p>
+                </div>
+                <div style="flex:
+</body>
+</html>
