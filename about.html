@@ -346,61 +346,67 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">
-            <a href="/" title="제주도 종합 안내">JEJU.ISLAND</a>
-        </div>
-        <button class="hamburger" aria-label="메뉴 열기" onclick="document.querySelector('nav ul').classList.toggle('open')">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <ul>
-            <li><a href="/" title="홈">홈</a></li>
-            <li><a href="/info" title="정보" class="active">정보</a></li>
-            <li><a href="/travel" title="여행">여행</a></li>
-            <li><a href="/living" title="생활">생활</a></li>
-            <li><a href="/transport" title="교통">교통</a></li>
-            <li><a href="/accommodation" title="숙소">숙소</a></li>
-        </ul>
-    </nav>
+<main class="container">
+<div class="brutal-border brutal-bg">
+<h1>제주도 종합 정보</h1>
+<p>이 페이지는 제주도를 방문하는 이용자를 위해 권역별 특징과 확인이 필요한 정보를 정리한 자료입니다. 특정 장소에 대한 개인적인 평가보다는 공개된 운영 정보와 지역 구분을 기준으로 안내하며, 방문 목적에 따라 참고할 권역이 달라질 수 있습니다. 첫 방문이라면 권역 이름과 대략적인 위치 관계를 먼저 파악하는 것이 전체 일정을 짜는 데 도움이 됩니다.</p>
+</div>
+<span class="stat-badge">제주 전역 정보</span>
+<section class="card-grid">
+<div class="card">
+<h2>제주 동부</h2>
+<p>해안 도로와 오름 지형이 많아 자연 경관 위주의 동선이 형성되는 지역입니다.</p>
+</div>
+<div class="card">
+<h2>제주 서부</h2>
+<p>해안 지역과 농경지가 함께 있는 지역으로 저녁 시간대 풍경으로 알려져 있습니다.</p>
+</div>
+<div class="card">
+<h2>제주 남부</h2>
+<p>산과 바다가 동시에 인접해 있어 계절에 따라 이동 조건이 달라지는 지역입니다.</p>
+</div>
+<div class="card">
+<h2>제주 시내권</h2>
+<p>숙박과 대중교통 거점이 몰려 있어 이동 기준점으로 삼기 좋은 지역입니다.</p>
+</div>
+</section>
+<table class="data-table">
+<tr><th>구분</th><th>특징</th><th>이동 수단</th></tr>
+<tr><td>동부</td><td>자연 경관 중심</td><td>렌터카 권장</td></tr>
+<tr><td>서부</td><td>해안·농경지 혼합</td><td>렌터카 권장</td></tr>
+<tr><td>남부</td><td>산·바다 인접</td><td>렌터카 권장</td></tr>
+<tr><td>시내권</td><td>숙박·교통 거점</td><td>대중교통 가능</td></tr>
+</table>
+<p class="highlight-yellow">권역 간 이동 거리가 있는 편이므로 하루 일정에 여러 권역을 포함할 경우 이동 시간을 넉넉히 잡는 것이 좋습니다. 특히 동부와 서부를 하루에 함께 묶는 일정은 이동에만 상당한 시간이 소요될 수 있습니다.</p>
+<section>
+<h2>용어 정리</h2>
+<ul>
+<li>권역 — 지리적 특징에 따라 나눈 큰 구역 단위</li>
+<li>외곽 지역 — 시내권에서 떨어진 동·서·남부 지역을 통칭하는 표현</li>
+<li>배차 간격 — 대중교통이 운행되는 시간 간격</li>
+</ul>
+</section>
+<section>
+<h2>자주 묻는 질문</h2>
+<div class="faq-item">
+<h3>대중교통만으로 전 지역 이동이 가능한가요?</h3>
+<p class="faq-answer">시내권은 대중교통으로 대부분 이동이 가능하지만 동부·서부·남부 외곽 지역은 배차 간격이 넓어 렌터카 이용이 더 효율적인 경우가 많습니다.</p>
+</div>
+<div class="faq-item open">
+<h3>계절에 따라 방문 정보가 달라지나요?</h3>
+<p class="faq-answer">계절풍과 강수량에 따라 일부 야외 구간의 접근성이 달라질 수 있어 방문 시기에 맞는 정보 확인이 필요합니다.</p>
+</div>
+<div class="faq-item">
+<h3>권역을 하루에 모두 둘러볼 수 있나요?</h3>
+<p class="faq-answer">이동 거리가 상당하기 때문에 하루에 전 권역을 모두 포함하기보다는 한두 권역을 중심으로 일정을 짜는 것이 일반적입니다.</p>
+</div>
+</section>
+<section>
+<h2>참고 사항</h2>
+<p>안내된 권역 구분은 행정구역과 정확히 일치하지 않을 수 있으며, 이동 편의를 기준으로 나눈 참고용 구분입니다. 실제 일정을 짤 때는 방문할 장소의 정확한 위치와 운영 정보를 함께 확인하는 것이 좋습니다.</p>
+</section>
+</main>
 
-    <main>
-        <div class="container">
 
-            <!-- Page Header -->
-            <section>
-                <h1>JEJU ISLAND 종합 정보</h1>
-                <p class="brutal-bg" style="margin-bottom: 1.5rem;">
-                    <strong>공신력 있는 데이터와 공식 통계 기반</strong> — 제주특별자치도의 지리, 기후, 역사, 인구, 
-                    경제 및 생활 인프라에 대한 정확한 정보를 제공합니다. 
-                    출처: 제주특별자치도청, 통계청, 기상청, 한국은행.
-                </p>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1rem;">
-                    <span class="stat-badge">면적 1,849 km²</span>
-                    <span class="stat-badge">인구 678,324명 (2024)</span>
-                    <span class="stat-badge">GDP 22.4조 원</span>
-                    <span class="stat-badge">평균 기온 16.2°C</span>
-                </div>
-            </section>
-
-            <!-- Section 1: 지리 및 위치 -->
-            <section>
-                <h2>지리 및 위치</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3>위치·좌표</h3>
-                        <p>제주도는 한반도 남서해상에 위치하며, 동경 126°08'~126°58', 북위 33°06'~34°00'에 걸쳐 있다. 
-                        대한민국 최남단의 행정구역으로, 부산에서 남서쪽으로 약 140km, 일본 후쿠오카에서 서쪽으로 약 200km 거리다.</p>
-                    </div>
-                    <div class="card">
-                        <h3>면적·지형</h3>
-                        <p>총 면적 1,849km²로 한반도 전체의 약 1.8%를 차지한다. 
-                        중앙에 한라산(해발 1,947m)이 위치하며, 동서 73km, 남북 31km의 타원형 화산섬이다. 
-                        해안선 길이는 약 258km이며, 주변에 74개의 부속 섬이 있다.</p>
-                    </div>
-                    <div class="card">
-                        <h3>
 </body>
 </html>
